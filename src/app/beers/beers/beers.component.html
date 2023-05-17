@@ -1,1 +1,26 @@
-<p>beers works!</p>
+<div class="container">
+  <div class="title">
+    <h1>Beers list</h1>
+    <button class="btn" (click)="navigateToAddBeer()">Add new beer</button>
+  </div>
+    <div *ngFor="let beer of beers">
+      <div class="beer-element-container">
+        <div class="beer-element">
+          <div>
+            {{beer.beerName}}
+          </div>
+          <div>
+            {{'price: ' + beer.price + ' $'}}
+          </div>
+        </div>
+        <div class="beer-element">
+          <div>
+            {{beer.beerStyle}}
+          </div>
+          <div>
+            {{'available in inventory: ' + beer.quantityOnHand}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
