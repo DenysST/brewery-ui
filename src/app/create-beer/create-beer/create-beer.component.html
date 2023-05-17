@@ -1,0 +1,23 @@
+<div class="container">
+  <form class="card" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-control">
+      <label>Beer name</label>
+      <input type="text" placeholder="Beer name" formControlName="name">
+      <div class="validation"></div>
+    </div>
+
+    <div class="form-control">
+      <label>Beer style</label>
+      <select formControlName="style">
+        <option *ngFor="let option of beerStyles" [value]="option">{{ option }}</option>
+      </select>
+    </div>
+
+    <div class="form-control">
+      <label>Price</label>
+      <input type="number" placeholder="Price" formControlName="price">
+      <div class="validation"></div>
+    </div>
+    <button class="btn" type="submit" [disabled]="form.invalid">Save</button>
+  </form>
+</div>
