@@ -1,0 +1,46 @@
+<div class="small-container">
+  <h1 class="title">Beer details</h1>
+  <div *ngIf="beer">
+    <div class="element">
+      <span>Name:</span>
+      <span>{{ beer.beerName }}</span>
+    </div>
+    <hr style="margin: 10px 0;">
+    <div class="element">
+      <span>Style:</span>
+      <span>{{ beer.beerStyle }}</span>
+    </div>
+    <hr style="margin: 10px 0;">
+    <div class="element">
+      <span>Price:</span>
+      <span>{{ beer.price }}</span>
+    </div>
+    <hr style="margin: 10px 0;">
+    <div class="element">
+      <span>Available in inventory:</span>
+      <span>{{ beer.quantityOnHand }}</span>
+    </div>
+    <hr style="margin: 10px 0;">
+    <div class="element">
+      <span>UPC:</span>
+      <span>{{ beer.upc }}</span>
+    </div>
+    <hr style="margin: 10px 0;">
+    <div class="element">
+      <span>Created date:</span>
+      <span>{{ beer.createdDate | date: 'dd:MMM:yyyy:HH:mm' }}</span>
+    </div>
+    <hr style="margin: 10px 0;">
+    <div class="element">
+      <span>Last modified date:</span>
+      <span>{{ beer.lastModifiedDate | date: 'dd:MMM:yyyy:HH:mm' }}</span>
+    </div>
+    <hr style="margin: 10px 0;">
+  </div>
+  <div class="button-container">
+    <div class="button-group">
+      <button class="btn" style="margin-right: 10px" [routerLink]="['/beer', beer.id]">Edit</button>
+      <button class="btn" (click)="onDelete(beer.id!)">Delete</button>
+    </div>
+  </div>
+</div>

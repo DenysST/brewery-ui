@@ -1,0 +1,27 @@
+<div class="container">
+  <table>
+    <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Style</th>
+      <th>Price</th>
+      <th>Quantity on hand</th>
+      <th>Selected Quantity</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let beer of beers">
+      <td><input type="checkbox" (change)="selectBeer(beer)"></td>
+      <td>{{ beer.beerName }}</td>
+      <td>{{ beer.beerStyle }}</td>
+      <td>{{ beer.price }}</td>
+      <td>{{ beer.quantityOnHand }}</td>
+      <td>
+        <input type="number" [(ngModel)]="beer.selectedQuantity" style="width: 70px;">
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <button class="btn" (click)="saveOrder()">Save order</button>
+</div>

@@ -8,6 +8,6 @@ export class BeerOrder {
   orderStatus?: string;
   orderStatusCallbackUrl?: string | null;
   version?: number;
-  createdDate?: string;
-  lastModifiedDate?: string;
+  createdDate?: Date;
+  lastModifiedDate?: Date;
 }

@@ -1,0 +1,36 @@
+<div class="small-container">
+  <h1 class="title">Order details</h1>
+  <div *ngIf="order">
+    <div class="element">
+      <span>Oder id:</span>
+      <span>{{order.id}}</span>
+    </div>
+    <hr style="margin: 10px 0;">
+    <div class="element">
+      <span>Order status:</span>
+      <span>{{order.orderStatus}}</span>
+    </div>
+    <hr style="margin: 10px 0;">
+    <div class="element">
+      <span>Created date:</span>
+      <span>{{order.createdDate | date: 'dd:MMM:yyyy:HH:mm'}}</span>
+    </div>
+    <hr style="margin: 10px 0;">
+    <span>Beers:</span>
+    <ul>
+      <li class="element bullet" *ngFor="let beer of order.beerOrderLines; let i = index">
+        <span>{{'- ' + beer.beerName + ':'}}</span>
+        <span>{{beer.orderQuantity}}</span>
+      </li>
+      <hr style="margin: 10px 0;">
+    </ul>
+    <div class="element">
+      <span>Total price:</span>
+      <span>{{totalPrice.toFixed(2)}}</span>
+    </div>
+    <hr style="margin: 10px 0;">
+  </div>
+  <div class="button-container">
+    <button class="btn" (click)="onCancel(order.id!)">Cancel order</button>
+  </div>
+</div>
