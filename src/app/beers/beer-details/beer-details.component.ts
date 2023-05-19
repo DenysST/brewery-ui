@@ -18,9 +18,11 @@ export class BeerDetailsComponent implements OnInit{
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       const beerId = params.get('id');
-      this.beerService.getById(beerId!).subscribe(beer => {
-        this.beer = beer
-      })
+      if (beerId) {
+        this.beerService.getById(beerId).subscribe(beer => {
+          this.beer = beer
+        })
+      }
     });
   }
 
@@ -31,6 +33,6 @@ export class BeerDetailsComponent implements OnInit{
   }
 
   onEdit(id: string) {
-
+    this.router.navigate(['/add-beer', id])
   }
 }

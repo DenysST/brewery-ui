@@ -21,7 +21,7 @@ export class CreateBeerComponent implements OnInit{
 
   beerStyles = Object.values(BeerStyles);
   editMode: boolean = false;
-  currentBeerId: string | undefined
+  currentBeer: Beer | undefined
 
   constructor(
     private beersService: BeersService,
@@ -32,10 +32,11 @@ export class CreateBeerComponent implements OnInit{
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      this.currentBeerId = params.get('id')!;
-      if (this.currentBeerId) {
+      const beerId = params.get('id');
+      if (beerId) {
         this.editMode = true;
-        this.beersService.getById(this.currentBeerId).subscribe((beer: Beer) => {
+        this.beersService.getById(beerId).subscribe((beer: Beer) => {
+          this.currentBeer = beer
           this.form.setValue({
             name: beer.beerName,
             style: beer.beerStyle,
@@ -49,8 +50,7 @@ export class CreateBeerComponent implements OnInit{
   onSubmit() {
     const beer = this.constructBeer()
     if (this.editMode) {
-      beer.id = this.currentBeerId
-      this.beersService.updateBeer(beer).subscribe(() => {
+      this.beersService.updateBeer(beer, this.currentBeer?.id!).subscribe(() => {
         this.router.navigate(['/beers'])
       })
     } else {
@@ -65,7 +65,7 @@ export class CreateBeerComponent implements OnInit{
     beer.beerName = this.form.get('name')?.value
     beer.beerStyle = this.form.get('style')?.value
     beer.price = this.form.get('price')?.value
-    beer.upc = this.createRandomUpc()
+    beer.upc = this.currentBeer ? beer.upc = this.currentBeer.upc : this.createRandomUpc()
     return beer
   }
 

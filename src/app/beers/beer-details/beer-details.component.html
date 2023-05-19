@@ -39,7 +39,7 @@
   </div>
   <div class="button-container">
     <div class="button-group">
-      <button class="btn" style="margin-right: 10px" [routerLink]="['/beer', beer.id]">Edit</button>
+      <button class="btn" style="margin-right: 10px" (click)="onEdit(beer.id!)">Edit</button>
       <button class="btn" (click)="onDelete(beer.id!)">Delete</button>
     </div>
   </div>

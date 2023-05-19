@@ -13,6 +13,7 @@ const routes: Routes = [
   {path: 'beers', component: BeersComponent},
   {path: 'orders', component: OrdersComponent},
   {path: 'add-beer', component: CreateBeerComponent},
+  {path: 'add-beer/:id', component: CreateBeerComponent},
   {path: 'add-order', component: CreateOrderComponent},
   {path: 'beer/:id', component: BeerDetailsComponent},
   {path: 'order/:id', component: OrderDetailsComponent}

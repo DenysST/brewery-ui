@@ -21,11 +21,12 @@ export class BeersService {
     return this.httpService.postData(beer, this.beersUrl)
   }
 
-  updateBeer(beer: Beer){
-    return this.httpService.putData(this.beersUrl, beer)
+  updateBeer(beer: Beer, beerId: string){
+    return this.httpService.putData(this.beersUrl + '/' + beerId, beer)
   }
 
   deleteById(id: string) {
     return this.httpService.deleteData(this.beersUrl + '/' + id)
   }
+
 }
