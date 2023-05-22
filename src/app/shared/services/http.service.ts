@@ -6,22 +6,23 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class HttpService {
+  basicUrl = 'http://localhost:9090'
 
   constructor(private http: HttpClient) {}
 
-  getData(url: string): Observable<any> {
-    return this.http.get(url);
+  getData(endpoint: string): Observable<any> {
+    return this.http.get(this.basicUrl + endpoint);
   }
 
-  postData(data: any, url: string): Observable<any> {
-    return this.http.post(url, data);
+  postData(data: any, endpoint: string): Observable<any> {
+    return this.http.post(this.basicUrl + endpoint, data);
   }
 
-  deleteData(url: string) {
-    return this.http.delete(url)
+  deleteData(endpoint: string) {
+    return this.http.delete(this.basicUrl + endpoint)
   }
 
-  putData(url: string, body: any) {
-    return this.http.put(url, body)
+  putData(endpoint: string, body: any) {
+    return this.http.put(this.basicUrl + endpoint, body)
   }
 }

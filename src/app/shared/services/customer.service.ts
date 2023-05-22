@@ -11,6 +11,6 @@ export class CustomerService {
   constructor(private httpService: HttpService) { }
 
   getCustomerById(id: string) {
-    return this.httpService.getData('http://localhost:8081/api/v1/customers/' + id)
+    return this.httpService.getData('/api/v1/customers/' + id)
   }
 }

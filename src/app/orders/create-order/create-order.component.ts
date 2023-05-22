@@ -58,7 +58,7 @@ export class CreateOrderComponent implements OnInit {
       orderLine.push(beerOrderLine)
     })
     const beerOrder = new BeerOrder()
-    beerOrder.customerId = '98204459-b2b3-44b2-a937-6f7ca0920378'
+    beerOrder.customerId = this.orderService.customerId
     beerOrder.beerOrderLines = orderLine
     return beerOrder
   }

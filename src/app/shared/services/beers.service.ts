@@ -6,15 +6,15 @@ import {Beer} from "../models/beer";
   providedIn: 'root'
 })
 export class BeersService {
-  private beersUrl = 'http://localhost:8080/api/v1/beer'
+  private beersUrl = '/api/v1/beer'
   constructor(private httpService: HttpService) { }
 
   getBeersList() {
-    return this.httpService.getData(this.beersUrl + '?showInventoryOnHand=true')
+    return this.httpService.getData(`${this.beersUrl}?showInventoryOnHand=true`)
   }
 
   getById(beerId: string) {
-    return this.httpService.getData(this.beersUrl + '/' + beerId + '?showInventoryOnHand=true')
+    return this.httpService.getData(`${this.beersUrl}/${beerId}?showInventoryOnHand=true`)
   }
 
   createBeer(beer: Beer) {
@@ -22,11 +22,11 @@ export class BeersService {
   }
 
   updateBeer(beer: Beer, beerId: string){
-    return this.httpService.putData(this.beersUrl + '/' + beerId, beer)
+    return this.httpService.putData(`${this.beersUrl}/${beerId}`, beer)
   }
 
   deleteById(id: string) {
-    return this.httpService.deleteData(this.beersUrl + '/' + id)
+    return this.httpService.deleteData(`${this.beersUrl}/${id}`)
   }
 
 }
