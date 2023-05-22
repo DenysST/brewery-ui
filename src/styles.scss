@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,11 +5,7 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-  background-color: #fff;
-  color: #333;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .container {
@@ -20,17 +14,10 @@ body {
   padding: 1rem;
 }
 
-a:hover {
-  color: #666;
-}
-
 ul {
   list-style: none;
 }
 
-img {
-  width: 100%;
-}
 
 .btn {
   display: inline-block;
@@ -54,15 +41,17 @@ img {
   }
 }
 
-.btn.btn-danger {
-  background: #dc3545;
-  color: #fff;
-}
-
 .form-control {
   display: block;
   margin-top: 0.3rem;
   margin-bottom: .5rem;
+
+
+  .input-field {
+    width: 100%;
+    padding: 0.4rem;
+    font-size: 1rem;
+  }
 
   label {
     display: block;
@@ -71,44 +60,14 @@ img {
     margin-bottom: .5rem;
   }
 
-  input {
-    margin-bottom: 0;
-  }
-
   .validation {
     color: red;
-  }
-}
-
-.card {
-  padding: 1rem;
-  border: #ccc 1px dotted;
-  margin: 0.7rem 0;
-
-  p {
-    display: flex;
-    justify-content: space-between;
-
-    span.completed {
-      text-decoration: line-through;
-    }
   }
 }
 
 a {
   text-decoration: none;
   color: #333;
-}
-
-input,
-select,
-textarea {
-  display: block;
-  width: 100%;
-  padding: 0.4rem;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  border: 1px solid #ccc;
 }
 
 hr {
@@ -122,29 +81,35 @@ hr {
   padding: 0.7rem 2rem;
   z-index: 1;
   width: 100%;
-  opacity: 0.9;
   margin-bottom: 1rem;
-  background: #3591dc;
+  background: #fff;
   color: #fff;
+  height: 70px;
+  text-align: center;
+  box-shadow: 0 0.0625em 0.5em rgba(0, 0, 0, 0.3);
 
   ul {
     display: flex;
 
     li.active a {
-      font-weight: bold;
-      color: #333333;
-      cursor: default;
+      background-color: #000;
+      border-radius: 999em;
+      color: #fff;
     }
   }
 
   a {
-    color: #fff;
-    padding: 0.45rem;
-    margin: 0 0.25rem;
+    display: block;
+    padding-left: 1em;
+    padding-right: 1em;
+    line-height: 1.8rem;
+    width: 85px;
+    text-align: center;
+    text-decoration: none;
   }
 }
 
-.title {
+.title-group {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -158,6 +123,7 @@ hr {
 .element {
   display: flex;
   justify-content: space-between;
+  line-height: 30px;
 }
 
 .small-container {
@@ -173,6 +139,25 @@ hr {
 
 .button-group {
   display: flex;
+}
+
+.title-name {
+  font-size: 1.8rem;
+  line-height: 2rem;
+  color: black;
+}
+
+.element-container {
+  border: #ccc 1px solid;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+
+  &:hover {
+    background-color: #eaf3ee;
+    cursor: pointer;
+  }
 }
 
 

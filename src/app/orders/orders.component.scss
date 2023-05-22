@@ -1,16 +1,1 @@
-.order-element-container {
-  border: #ccc 1px dotted;
-  padding: 10px;
-  margin-top: 5px;
-  margin-bottom: 5px;
 
-  &:hover {
-    background-color: #f4f8fc;
-    cursor: pointer;
-  }
-}
-
-.order-element {
-  display: flex;
-  justify-content: space-between;
-}

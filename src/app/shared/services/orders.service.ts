@@ -12,7 +12,7 @@ export class OrdersService {
   constructor(private httpService: HttpService) { }
 
   getOrders() {
-    return this.httpService.getData(`${this.url}/${this.customerId}/orders`)
+    return this.httpService.getData(`${this.url}/${this.customerId}/orders?page=0&size=25`)
   }
 
   saveOrder(beerOrder: BeerOrder) {

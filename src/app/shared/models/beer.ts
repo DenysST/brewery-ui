@@ -8,5 +8,5 @@ export class Beer {
   upc?: string
   price?: number
   quantityOnHand?: number
-  selectedQuantity: number = 0
+  selectedQuantity: number = 1
 }

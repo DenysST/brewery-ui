@@ -15,6 +15,7 @@ import {Router} from "@angular/router";
 export class CreateOrderComponent implements OnInit {
   beers: Beer[] = []
   selectedBeers: Beer[] = [];
+  test = 1
 
 
   constructor(
@@ -30,16 +31,23 @@ export class CreateOrderComponent implements OnInit {
   }
 
   selectBeer(beer: Beer) {
+    if (beer.selectedQuantity < 0 || beer.selectedQuantity > 100) {
+      beer.selectedQuantity = 0
+      return
+    }
     const index = this.selectedBeers.indexOf(beer);
     if (index === -1) {
       this.selectedBeers.push(beer);
-    } else {
+    } else if (beer.selectedQuantity === 0) {
       this.selectedBeers.splice(index, 1);
+    } else {
+      this.selectedBeers[index] = beer
     }
   }
 
   saveOrder() {
     const beerOrder = this.createBeerOrder()
+    console.log(this.selectedBeers)
     this.orderService.saveOrder(beerOrder).subscribe(() => {
       this.router.navigate(['/orders'])
     })
@@ -61,5 +69,12 @@ export class CreateOrderComponent implements OnInit {
     beerOrder.customerId = this.orderService.customerId
     beerOrder.beerOrderLines = orderLine
     return beerOrder
+  }
+
+  changeBeerQuantity(beer: Beer) {
+    const index = this.selectedBeers.indexOf(beer);
+    if (index !== -1) {
+      this.selectedBeers[index].selectedQuantity = beer.selectedQuantity
+    }
   }
 }

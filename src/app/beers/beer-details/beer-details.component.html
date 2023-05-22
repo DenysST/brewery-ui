@@ -1,5 +1,5 @@
 <div class="small-container">
-  <h1 class="title">Beer details</h1>
+  <div class="title-group title-name">Beer details</div>
   <div *ngIf="beer">
     <div class="element">
       <span>Name:</span>
@@ -8,7 +8,7 @@
     <hr style="margin: 10px 0;">
     <div class="element">
       <span>Style:</span>
-      <span>{{ beer.beerStyle }}</span>
+      <span>{{ beer.beerStyle | enumFormat }}</span>
     </div>
     <hr style="margin: 10px 0;">
     <div class="element">

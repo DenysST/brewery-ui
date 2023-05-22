@@ -16,7 +16,10 @@ export class CreateBeerComponent implements OnInit{
       Validators.required
     ]),
     style: new FormControl(),
-    price: new FormControl()
+    price: new FormControl('',
+      [Validators.min(1),
+        Validators.max(100),
+        Validators.required])
   })
 
   beerStyles = Object.values(BeerStyles);

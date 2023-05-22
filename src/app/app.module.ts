@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +13,7 @@ import { CreateOrderComponent } from './orders/create-order/create-order.compone
 import {DatePipe} from "@angular/common";
 import { BeerDetailsComponent } from './beers/beer-details/beer-details.component';
 import { OrderDetailsComponent } from './orders/order-details/order-details.component';
+import {EnumFormatPipe} from "./shared/pipes/enumFormatPipe";
 
 @NgModule({
   declarations: [
@@ -23,16 +24,19 @@ import { OrderDetailsComponent } from './orders/order-details/order-details.comp
     CreateBeerComponent,
     CreateOrderComponent,
     BeerDetailsComponent,
-    OrderDetailsComponent
+    OrderDetailsComponent,
+    EnumFormatPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    DatePipe
   ],
   providers: [DatePipe],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [NO_ERRORS_SCHEMA]
 })
 export class AppModule { }

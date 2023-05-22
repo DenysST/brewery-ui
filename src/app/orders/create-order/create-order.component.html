@@ -2,7 +2,6 @@
   <table>
     <thead>
     <tr>
-      <th></th>
       <th>Name</th>
       <th>Style</th>
       <th>Price</th>
@@ -12,16 +11,18 @@
     </thead>
     <tbody>
     <tr *ngFor="let beer of beers">
-      <td><input type="checkbox" (change)="selectBeer(beer)"></td>
       <td>{{ beer.beerName }}</td>
-      <td>{{ beer.beerStyle }}</td>
+      <td>{{ beer.beerStyle | enumFormat }}</td>
       <td>{{ beer.price }}</td>
       <td>{{ beer.quantityOnHand }}</td>
       <td>
-        <input type="number" [(ngModel)]="beer.selectedQuantity" style="width: 70px;">
+        <input type="number" [(ngModel)]="beer.selectedQuantity"
+               (change)="selectBeer(beer)" style="width: 70px;">
       </td>
     </tr>
     </tbody>
   </table>
-  <button class="btn" (click)="saveOrder()">Save order</button>
+  <div class="button-container">
+    <button class="btn" style="margin-top: 10px" (click)="saveOrder()" [disabled]="selectedBeers.length === 0">Save order</button>
+  </div>
 </div>

@@ -1,16 +1,21 @@
 <div class="container">
-  <div class="title">
-    <h1>Orders list</h1>
+  <div class="title-group">
+    <div class="title-name">Orders list</div>
     <button class="btn" (click)="navigateToAddOrder()">Add new order</button>
+  </div>
+  <div *ngIf="beerOrders.length === 0">
+    <p>
+      There are no orders yet
+    </p>
   </div>
   <div *ngFor="let order of beerOrders">
     <a [routerLink]="['/order', order.id]">
-      <div class="order-element-container">
-        <div class="order-element">
+      <div class="element-container">
+        <div class="element">
           <div>{{'order id: ' + order.id}}</div>
-          <div>{{'order status: ' + order.orderStatus}}</div>
+          <div>{{'order status: ' + (order.orderStatus | enumFormat)}}</div>
         </div>
-        <div class="order-element">
+        <div class="element">
           <div>{{'order lines size: ' + order.beerOrderLines?.length}}</div>
           <div>{{'created date: ' + (order.createdDate | date: 'dd:MMM:yyyy:HH:mm')}}</div>
         </div>

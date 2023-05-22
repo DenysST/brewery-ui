@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {BeersService} from "../shared/services/beers.service";
 import {OrdersService} from "../shared/services/orders.service";
 import {BeerOrder} from "../shared/models/beerOrder";
-import {CustomerService} from "../shared/services/customer.service";
-import {first, map, switchMap} from "rxjs";
+import {switchMap} from "rxjs";
 import {Router} from "@angular/router";
 import {Customer} from "../shared/models/customer";
 

@@ -1,12 +1,12 @@
-<div class="container" xmlns="http://www.w3.org/1999/html">
-  <div class="title">
-    <h1>Beers list</h1>
+<div class="container">
+  <div class="title-group">
+    <div class="title-name">Beers list</div>
     <button class="btn" (click)="navigateToAddBeer()">Add new beer</button>
   </div>
     <div *ngFor="let beer of beers">
       <a [routerLink]="['/beer', beer.id]">
-      <div class="beer-element-container">
-        <div class="beer-element">
+      <div class="element-container">
+        <div class="element">
           <div>
             {{beer.beerName}}
           </div>
@@ -14,9 +14,9 @@
             {{'price: ' + beer.price + ' $'}}
           </div>
         </div>
-        <div class="beer-element">
+        <div class="element">
           <div>
-            {{beer.beerStyle}}
+            {{beer.beerStyle | enumFormat}}
           </div>
           <div>
             {{'available in inventory: ' + beer.quantityOnHand}}

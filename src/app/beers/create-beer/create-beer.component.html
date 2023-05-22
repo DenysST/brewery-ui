@@ -1,23 +1,39 @@
 <div class="small-container">
-  <form class="card" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="form-control">
       <label>Beer name</label>
-      <input type="text" placeholder="Beer name" formControlName="name">
-      <div class="validation"></div>
+      <input class="input-field" type="text" placeholder="Beer name" formControlName="name">
+      <div
+        *ngIf="form.get('name')?.invalid && form.get('name')?.touched"
+        class="validation"
+      >
+        <small *ngIf="form.get('name')!.errors">
+          Field can not be empty
+        </small>
+      </div>
     </div>
 
     <div class="form-control">
       <label>Beer style</label>
-      <select formControlName="style">
-        <option *ngFor="let option of beerStyles" [value]="option">{{ option }}</option>
+      <select class="input-field" formControlName="style">
+        <option *ngFor="let option of beerStyles" [value]="option">{{ option | enumFormat }}</option>
       </select>
     </div>
 
     <div class="form-control">
       <label>Price</label>
-      <input type="number" placeholder="Price" formControlName="price">
-      <div class="validation"></div>
+      <input class="input-field" type="number" placeholder="Price" formControlName="price">
+      <div
+        *ngIf="form.get('price')?.invalid && form.get('price')?.touched"
+        class="validation"
+      >
+        <small *ngIf="form.get('price')!.errors">
+          Incorrect value
+        </small>
+      </div>
     </div>
-    <button class="btn" type="submit" [disabled]="form.invalid">{{ editMode ? 'Update' : 'Save' }}</button>
+    <div class="button-container">
+      <button class="btn" type="submit" [disabled]="form.invalid">{{ editMode ? 'Update' : 'Save' }}</button>
+    </div>
   </form>
 </div>
