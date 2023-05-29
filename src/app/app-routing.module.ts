@@ -7,16 +7,19 @@ import {CreateBeerComponent} from "./beers/create-beer/create-beer.component";
 import {CreateOrderComponent} from "./orders/create-order/create-order.component";
 import {BeerDetailsComponent} from "./beers/beer-details/beer-details.component";
 import {OrderDetailsComponent} from "./orders/order-details/order-details.component";
+import {LoginComponent} from "./login/login.component";
+import {AuthGuard} from "./shared/services/auth.guard";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'beers', component: BeersComponent},
-  {path: 'orders', component: OrdersComponent},
-  {path: 'add-beer', component: CreateBeerComponent},
-  {path: 'add-beer/:id', component: CreateBeerComponent},
-  {path: 'add-order', component: CreateOrderComponent},
-  {path: 'beer/:id', component: BeerDetailsComponent},
-  {path: 'order/:id', component: OrderDetailsComponent}
+  {path: 'beers', component: BeersComponent, canActivate: [AuthGuard]},
+  {path: 'orders', component: OrdersComponent, canActivate: [AuthGuard]},
+  {path: 'add-beer', component: CreateBeerComponent, canActivate: [AuthGuard]},
+  {path: 'add-beer/:id', component: CreateBeerComponent, canActivate: [AuthGuard]},
+  {path: 'add-order', component: CreateOrderComponent, canActivate: [AuthGuard]},
+  {path: 'beer/:id', component: BeerDetailsComponent, canActivate: [AuthGuard]},
+  {path: 'order/:id', component: OrderDetailsComponent, canActivate: [AuthGuard]},
+  {path: 'login', component: LoginComponent}
 ];
 
 @NgModule({

@@ -7,6 +7,6 @@ for studying microservice architecture
 - NodeJs `v18.10.0` or higher
 
 ## Starting up
-
-Run `ng serve`. Navigate to `http://localhost:4200/`.
+- Run `npm install`
+- Run `ng serve`. Navigate to `http://localhost:4200/`.
 
